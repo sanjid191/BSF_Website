@@ -33,7 +33,6 @@ export default function Footer() {
               </a>
             </div>
           </div>
-
           {/* Column 2 */}
           <div>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
@@ -54,13 +53,13 @@ export default function Footer() {
               <li><a href="#" className="text-white/80 hover:text-white">BASIS Website</a></li>
               <li><a href="#" className="text-white/80 hover:text-white">GUB Portal</a></li>
               <li><a href="#" className="text-white/80 hover:text-white">Career Opportunities</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white">Events Calendar</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white">Events Calendar.</a></li>
             </ul>
           </div>
 
           {/* Column 4 */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Newsletter</h3>
+            <h3 className="text-lg font-bold mb-4">News letter</h3>
             <p className="text-white/80 text-sm mb-4">Subscribe to stay updated with our latest news and events.</p>
             <form className="flex">
               <input 
