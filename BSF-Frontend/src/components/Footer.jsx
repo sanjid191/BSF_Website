@@ -53,7 +53,7 @@ export default function Footer() {
               <li><a href="#" className="text-white/80 hover:text-white">BASIS Website</a></li>
               <li><a href="#" className="text-white/80 hover:text-white">GUB Portal</a></li>
               <li><a href="#" className="text-white/80 hover:text-white">Career Opportunities</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white">Events Calendar</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white">Events Calendar.</a></li>
             </ul>
           </div>
 
