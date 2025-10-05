@@ -12,7 +12,7 @@ html, body, #root {
 }
 
 body {
-  @apply bg-gray-50 text-slate-800 antialiased;
+  @apply bg-mint-50 text-slate-800 antialiased;
 }
 
 .container {
@@ -27,29 +27,31 @@ body {
 /* Add proper container sizing for better proportions */
 @media (min-width: 640px) {
   .container {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 90%;
   }
 }
 
 @media (min-width: 1536px) {
   .container {
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    max-width: 85%;
   }
 }
 
-/* Content max-width constraints for better readability */
+/* Content container for full width */
 .content-container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }

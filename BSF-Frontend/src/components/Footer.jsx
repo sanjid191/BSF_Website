@@ -1,8 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="bg-bsf-green text-white w-full">
+    <footer className="bg-gradient-to-r from-bsf-green to-mint-600 text-white w-full">
       <div className="container py-8 md:py-12">
-        <div className="content-container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Column 1 */}
           <div>
@@ -44,6 +43,7 @@ export default function Footer() {
               <li><a href="/events" className="text-white/80 hover:text-white">Events</a></li>
               <li><a href="/members" className="text-white/80 hover:text-white">Members</a></li>
               <li><a href="/notices" className="text-white/80 hover:text-white">Notices</a></li>
+              <li><a href="/constitution" className="text-white/80 hover:text-white">Constitution</a></li>
             </ul>
           </div>
 
@@ -80,7 +80,6 @@ export default function Footer() {
 
         <div className="border-t border-white/20 mt-8 pt-6 text-center text-sm text-white/70">
           © {new Date().getFullYear()} BASIS Student Forum - Green University of Bangladesh. All rights reserved.
-        </div>
         </div>
       </div>
     </footer>

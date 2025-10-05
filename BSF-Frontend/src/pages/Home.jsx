@@ -39,7 +39,7 @@ export default function Home() {
       className="space-y-16 sm:space-y-20 md:space-y-24 pb-0"
     >
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-bsf-green to-bsf-teal py-28 sm:py-36 overflow-hidden">
+      <section className="relative bg-gradient-to-r from-bsf-green to-bsf-teal py-20 sm:py-28 lg:py-36 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-white/10 rounded-tl-full -mb-20 -mr-20 blur-xl"></div>
         <div className="absolute top-20 left-10 w-20 h-20 bg-bsf-red/20 rounded-full blur-xl"></div>
@@ -47,19 +47,19 @@ export default function Home() {
         <div className="container relative z-10">
           <motion.div 
             variants={fadeIn} 
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-narrow mx-auto text-center"
           >
             <div className="inline-block mb-4 px-4 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm">
               <span className="font-medium">BASIS Student Forum — Green University Chapter</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Bridging Academia with <span className="text-bsf-teal">Industry</span>
             </h1>
-            <p className="text-white/90 text-lg md:text-xl mb-10 max-w-3xl mx-auto">
+            <p className="text-white/90 text-base md:text-lg lg:text-xl mb-8 md:mb-10 max-w-3xl mx-auto">
               Connecting students with the tech industry through innovation, collaboration, and professional development opportunities
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/projects" className="px-6 py-3 rounded-lg bg-white text-bsf-green font-medium hover:bg-bsf-red hover:text-white transition-colors">
+              <Link to="/projects" className="px-5 py-2.5 md:px-6 md:py-3 rounded-lg bg-white text-bsf-green font-medium hover:bg-bsf-red hover:text-white transition-colors">
                 Explore Projects
               </Link>
               <a 
@@ -68,7 +68,7 @@ export default function Home() {
                   e.preventDefault();
                   aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-6 py-3 rounded-lg border-2 border-white text-white font-medium hover:bg-white hover:text-bsf-green transition-colors"
+                className="px-5 py-2.5 md:px-6 md:py-3 rounded-lg border-2 border-white text-white font-medium hover:bg-white hover:text-bsf-green transition-colors"
               >
                 Learn More
               </a>
@@ -79,10 +79,16 @@ export default function Home() {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2"
+            className="absolute bottom-0 right-8 transform translate-y-1/2"
           >
-            <div className="w-16 h-16 bg-bsf-red rounded-full flex items-center justify-center shadow-lg cursor-pointer">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div 
+              className="w-12 h-12 md:w-16 md:h-16 bg-bsf-red rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:bg-bsf-green transition-colors duration-300"
+              onClick={(e) => {
+                e.preventDefault();
+                aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
@@ -107,16 +113,16 @@ export default function Home() {
                   className="object-contain w-full h-full p-6"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-bsf-red rounded-full flex items-center justify-center text-white text-sm font-bold">
+              <div className="absolute -bottom-4 -right-4 w-20 h-20 md:w-24 md:h-24 bg-bsf-red rounded-full flex items-center justify-center text-white text-sm font-bold">
                 SINCE<br/>2023
               </div>
-              <div className="absolute -top-6 -left-6 w-32 h-32 bg-bsf-teal/20 rounded-full blur-xl -z-10"></div>
+              <div className="absolute -top-6 -left-6 w-24 h-24 md:w-32 md:h-32 bg-bsf-teal/20 rounded-full blur-xl -z-10"></div>
             </div>
           </motion.div>
 
           <motion.div variants={slideRight}>
             <span className="text-bsf-red font-semibold mb-2 inline-block">ABOUT US</span>
-            <h2 className="text-4xl font-bold mb-6 text-bsf-green">What is BSF-GUB?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-bsf-green">What is BSF-GUB?</h2>
             <p className="text-bsf-gray mb-4">
               The BASIS Student Forum at Green University of Bangladesh is a platform that bridges the gap between academia and industry, preparing students for successful careers in IT and tech.
             </p>
@@ -166,6 +172,112 @@ export default function Home() {
           </motion.div>
         </div>
       </motion.section>
+      
+      {/* Constitution Section */}
+      <motion.section
+        variants={fadeIn}
+        className="bg-gradient-to-b from-white to-gray-50 py-12 md:py-16 lg:py-20"
+      >
+        <div className="container">
+          <div className="max-w-section mx-auto">
+            <div className="text-center mb-8 md:mb-12">
+              <span className="text-bsf-red font-semibold mb-2 inline-block">GOVERNANCE</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-bsf-green mb-4">Constitution & Bylaws</h2>
+              <p className="text-bsf-gray mt-2 max-w-2xl mx-auto">
+                The official governing documents that define our organization's structure, rules, and procedures
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-0">
+                <motion.div 
+                  variants={{
+                    initial: { opacity: 0, x: -30 },
+                    animate: { opacity: 1, x: 0, transition: { duration: 0.7 } }
+                  }}
+                  className="p-6 md:p-8 lg:p-10 flex flex-col justify-center"
+                >
+                  <div className="bg-bsf-green/10 text-bsf-green p-2 inline-flex rounded-lg mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold mb-4 text-bsf-green">BSF-GUB Constitution 2025</h3>
+                  <p className="text-bsf-gray mb-4">
+                    Our constitution outlines the fundamental principles, organizational structure, and operational 
+                    framework of the BASIS Student Forum at Green University of Bangladesh.
+                  </p>
+                  <p className="text-bsf-gray mb-6">
+                    This document was ratified on January 15, 2025, and serves as the primary governance 
+                    document for all BSF-GUB activities and initiatives.
+                  </p>
+                  
+                  <div className="mt-auto">
+                    <Link 
+                      to="/constitution" 
+                      className="inline-flex items-center px-6 py-3 rounded-lg bg-bsf-green text-white hover:bg-bsf-teal transition-colors"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      View Full Constitution
+                    </Link>
+                  </div>
+                </motion.div>
+                
+                <motion.div 
+                  variants={{
+                    initial: { opacity: 0, x: 30 },
+                    animate: { opacity: 1, x: 0, transition: { duration: 0.7 } }
+                  }}
+                  className="relative bg-gradient-to-r from-bsf-green to-bsf-teal overflow-hidden flex items-center justify-center"
+                >
+                  <div className="absolute inset-0 opacity-20">
+                    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                      <defs>
+                        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5"/>
+                        </pattern>
+                      </defs>
+                      <rect width="100%" height="100%" fill="url(#grid)" />
+                    </svg>
+                  </div>
+                  
+                  <div className="relative p-6 md:p-10 text-center">
+                    <div className="inline-block bg-white rounded-full p-4 mb-6">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-bsf-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                      </svg>
+                    </div>
+                    <h4 className="text-white text-xl md:text-2xl font-bold mb-3">Official Document</h4>
+                    <p className="text-white/80 mb-6 max-w-xs mx-auto">
+                      Access our organization's constitution and bylaws to learn about our structure, rules, and procedures.
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-3">
+                      <Link 
+                        to="/constitution" 
+                        className="inline-flex items-center px-5 py-2.5 rounded-lg bg-white text-bsf-green hover:bg-bsf-red hover:text-white transition-colors"
+                      >
+                        Read Online
+                      </Link>
+                      <a 
+                        href="/src/BSF-GUB_Constitution_2025.pdf" 
+                        download="BSF-GUB_Constitution_2025.pdf" 
+                        className="inline-flex items-center px-5 py-2.5 rounded-lg bg-white/20 text-white border border-white/40 hover:bg-white hover:text-bsf-green transition-colors"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Download PDF
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
 
       {/* Benefits Section */}
       <motion.section 
@@ -181,12 +293,12 @@ export default function Home() {
                 Membership opens doors to exclusive opportunities and resources to advance your tech career
               </p>
             </div>
-          
-            <div className="grid md:grid-cols-3 gap-8">
+            
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
               {[
                 {
                   icon: (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-10 md:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   ),
@@ -195,7 +307,7 @@ export default function Home() {
                 },
                 {
                   icon: (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-10 md:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                     </svg>
                   ),
@@ -204,7 +316,7 @@ export default function Home() {
                 },
                 {
                   icon: (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-10 md:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                   ),
@@ -222,17 +334,17 @@ export default function Home() {
                       transition: { delay: 0.1 * index, duration: 0.5 } 
                     }
                   }}
-                  className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-bsf-teal transform hover:-translate-y-1"
+                  className="bg-white p-6 md:p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border-t-4 border-bsf-teal transform hover:-translate-y-1"
                 >
                   <div className="text-bsf-red mb-6">{benefit.icon}</div>
-                  <h3 className="text-xl font-bold mb-3 text-bsf-green">{benefit.title}</h3>
-                  <p className="text-bsf-gray">{benefit.description}</p>
+                  <h3 className="text-lg md:text-xl font-bold mb-3 text-bsf-green">{benefit.title}</h3>
+                  <p className="text-bsf-gray text-sm md:text-base">{benefit.description}</p>
                 </motion.div>
               ))}
             </div>
 
-            <div className="mt-16 text-center">
-              <Link to="/benefits" className="inline-flex items-center px-6 py-3 rounded-lg border-2 border-bsf-red text-bsf-red font-medium hover:bg-bsf-red hover:text-white transition-colors">
+            <div className="mt-10 md:mt-16 text-center">
+              <Link to="/benefits" className="inline-flex items-center px-5 py-2.5 md:px-6 md:py-3 rounded-lg border-2 border-bsf-red text-bsf-red font-medium hover:bg-bsf-red hover:text-white transition-colors">
                 View All Benefits
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -251,13 +363,13 @@ export default function Home() {
         <div className="max-w-section mx-auto">
           <div className="text-center mb-8 md:mb-12 lg:mb-16">
             <span className="text-bsf-red font-semibold mb-2 inline-block">OUR TEAM</span>
-            <h2 className="text-4xl font-bold text-bsf-green mb-4">Committee Members</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-bsf-green mb-4">Committee Members</h2>
             <p className="text-bsf-gray mt-2 max-w-2xl mx-auto">
               Meet the dedicated team leading BASIS Student Forum at GUB
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
               {
                 image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
@@ -278,53 +390,54 @@ export default function Home() {
                 image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
                 name: "Fahmida Khan",
                 position: "Event Coordinator"
-              }].map((member, index) => (
-            <motion.div
-              key={index}
-              variants={{
-                initial: { opacity: 0, scale: 0.9 },
-                animate: { 
-                  opacity: 1, 
-                  scale: 1, 
-                  transition: { delay: 0.15 * index, duration: 0.5 } 
-                }
-              }}
-              className="group"
-            >
-              <div className="relative overflow-hidden rounded-xl mb-4">
-                <img 
-                  src={member.image} 
-                  alt={member.name} 
-                  className="w-full aspect-square object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-bsf-green/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
-                  <div className="flex space-x-3">
-                    <a href="#" className="bg-white/20 hover:bg-white/40 p-2 rounded-full backdrop-blur-sm">
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
-                      </svg>
-                    </a>
-                    <a href="#" className="bg-white/20 hover:bg-white/40 p-2 rounded-full backdrop-blur-sm">
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 9.99 9.99 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                      </svg>
-                    </a>
-                    <a href="#" className="bg-white/20 hover:bg-white/40 p-2 rounded-full backdrop-blur-sm">
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
-                      </svg>
-                    </a>
+              }
+            ].map((member, index) => (
+              <motion.div
+                key={index}
+                variants={{
+                  initial: { opacity: 0, scale: 0.9 },
+                  animate: { 
+                    opacity: 1, 
+                    scale: 1, 
+                    transition: { delay: 0.15 * index, duration: 0.5 } 
+                  }
+                }}
+                className="group"
+              >
+                <div className="relative overflow-hidden rounded-lg md:rounded-xl mb-4">
+                  <img 
+                    src={member.image} 
+                    alt={member.name} 
+                    className="w-full aspect-square object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bsf-green/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+                    <div className="flex space-x-3">
+                      <a href="#" className="bg-white/20 hover:bg-white/40 p-2 rounded-full backdrop-blur-sm">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                        </svg>
+                      </a>
+                      <a href="#" className="bg-white/20 hover:bg-white/40 p-2 rounded-full backdrop-blur-sm">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 9.99 9.99 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                        </svg>
+                      </a>
+                      <a href="#" className="bg-white/20 hover:bg-white/40 p-2 rounded-full backdrop-blur-sm">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <h3 className="text-lg font-bold text-bsf-green">{member.name}</h3>
-              <p className="text-bsf-gray text-sm">{member.position}</p>
-            </motion.div>
-          ))}
+                <h3 className="text-lg font-bold text-bsf-green">{member.name}</h3>
+                <p className="text-bsf-gray text-sm">{member.position}</p>
+              </motion.div>
+            ))}
           </div>
 
-          <div className="mt-16 text-center">
-            <Link to="/members" className="inline-flex items-center px-6 py-3 rounded-lg bg-bsf-green text-white font-medium hover:bg-bsf-red transition-colors">
+          <div className="mt-10 md:mt-16 text-center">
+            <Link to="/members" className="inline-flex items-center px-5 py-2.5 md:px-6 md:py-3 rounded-lg bg-bsf-green text-white font-medium hover:bg-bsf-red transition-colors">
               View All Members
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -341,90 +454,91 @@ export default function Home() {
       >
         <div className="container">
           <div className="max-w-section mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-8 md:mb-12 lg:mb-16">
               <span className="text-bsf-red font-semibold mb-2 inline-block">PORTFOLIO</span>
-              <h2 className="text-4xl font-bold text-bsf-green mb-4">Our Projects & Events</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-bsf-green mb-4">Our Projects & Events</h2>
               <p className="text-bsf-gray mt-2 max-w-2xl mx-auto">
                 Discover our achievements and successful initiatives
               </p>
             </div>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                image: "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-                title: "Tech Innovation Summit 2024",
-                description: "Annual hackathon bringing together the brightest minds from GUB",
-                tag: "Event",
-                date: "March 15, 2024"
-              },
-              {
-                image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-                title: "GUB Smart Campus App",
-                description: "Student-led project creating a comprehensive campus management system",
-                tag: "Project",
-                date: "June 10, 2024"
-              },
-              {
-                image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-                title: "Career Development Workshop",
-                description: "Hands-on training for students on in-demand industry skills",
-                tag: "Workshop",
-                date: "August 22, 2024"
-              }
-            ].map((item, index) => (
-              <motion.div 
-                key={index}
-                variants={{
-                  initial: { opacity: 0, y: 30 },
-                  animate: { 
-                    opacity: 1, 
-                    y: 0, 
-                    transition: { delay: 0.2 * index, duration: 0.5 } 
-                  }
-                }}
-                className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-3">
-                    <span className="bg-bsf-red/10 text-bsf-red px-3 py-1 rounded-full text-xs font-medium">
-                      {item.tag}
-                    </span>
-                    <span className="text-bsf-gray text-xs">{item.date}</span>
+            
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+              {[
+                {
+                  image: "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                  title: "Tech Innovation Summit 2024",
+                  description: "Annual hackathon bringing together the brightest minds from GUB",
+                  tag: "Event",
+                  date: "March 15, 2024"
+                },
+                {
+                  image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                  title: "GUB Smart Campus App",
+                  description: "Student-led project creating a comprehensive campus management system",
+                  tag: "Project",
+                  date: "June 10, 2024"
+                },
+                {
+                  image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                  title: "Career Development Workshop",
+                  description: "Hands-on training for students on in-demand industry skills",
+                  tag: "Workshop",
+                  date: "August 22, 2024"
+                }
+              ].map((item, index) => (
+                <motion.div 
+                  key={index}
+                  variants={{
+                    initial: { opacity: 0, y: 30 },
+                    animate: { 
+                      opacity: 1, 
+                      y: 0, 
+                      transition: { delay: 0.2 * index, duration: 0.5 } 
+                    }
+                  }}
+                  className="group bg-white rounded-lg md:rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-bsf-green group-hover:text-bsf-red transition-colors">{item.title}</h3>
-                  <p className="text-bsf-gray text-sm mb-4">{item.description}</p>
-                  <Link 
-                    to="/projects" 
-                    className="text-bsf-red font-medium hover:text-bsf-green transition-colors inline-flex items-center text-sm"
-                  >
-                    Learn more
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Link 
-              to="/projects" 
-              className="inline-flex items-center px-6 py-3 rounded-lg border-2 border-bsf-green text-bsf-green font-medium hover:bg-bsf-green hover:text-white transition-colors"
-            >
-              View All Projects
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </Link>
+                  <div className="p-4 md:p-6">
+                    <div className="flex justify-between items-center mb-3">
+                      <span className="bg-bsf-red/10 text-bsf-red px-3 py-1 rounded-full text-xs font-medium">
+                        {item.tag}
+                      </span>
+                      <span className="text-bsf-gray text-xs">{item.date}</span>
+                    </div>
+                    <h3 className="text-lg md:text-xl font-bold mb-2 text-bsf-green group-hover:text-bsf-red transition-colors">{item.title}</h3>
+                    <p className="text-bsf-gray text-sm mb-4">{item.description}</p>
+                    <Link 
+                      to="/projects" 
+                      className="text-bsf-red font-medium hover:text-bsf-green transition-colors inline-flex items-center text-sm"
+                    >
+                      Learn more
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            
+            <div className="text-center mt-10 md:mt-12">
+              <Link 
+                to="/projects" 
+                className="inline-flex items-center px-5 py-2.5 md:px-6 md:py-3 rounded-lg border-2 border-bsf-green text-bsf-green font-medium hover:bg-bsf-green hover:text-white transition-colors"
+              >
+                View All Projects
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </motion.section>
@@ -437,25 +551,25 @@ export default function Home() {
         <div className="max-w-section mx-auto">
           <div className="text-center mb-8 md:mb-12 lg:mb-16">
             <span className="text-bsf-red font-semibold mb-2 inline-block">PARTNERS</span>
-            <h2 className="text-4xl font-bold text-bsf-green mb-4">Our Collaborations</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-bsf-green mb-4">Our Collaborations</h2>
             <p className="text-bsf-gray mt-2 max-w-2xl mx-auto">
               Working with industry leaders to create opportunities for students
             </p>
           </div>
-        </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-md flex items-center justify-center">
-            <img src="/src/assets/logo/BASIS.jpg" alt="BASIS Logo" className="max-h-16" />
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md flex items-center justify-center">
-            <img src="/src/assets/logo/GUB-New-Logo_PNG.png" alt="GUB Logo" className="max-h-16" />
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md flex items-center justify-center">
-            <img src="/src/assets/logo/DEPT OF CSE.png" alt="CSE Department Logo" className="max-h-16" />
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md flex items-center justify-center">
-            <div className="font-bold text-bsf-gray">+ More Partners</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
+            <div className="bg-white p-4 md:p-6 rounded-lg shadow-md flex items-center justify-center">
+              <img src="/src/assets/logo/BASIS.jpg" alt="BASIS Logo" className="max-h-12 md:max-h-16" />
+            </div>
+            <div className="bg-white p-4 md:p-6 rounded-lg shadow-md flex items-center justify-center">
+              <img src="/src/assets/logo/GUB-New-Logo_PNG.png" alt="GUB Logo" className="max-h-12 md:max-h-16" />
+            </div>
+            <div className="bg-white p-4 md:p-6 rounded-lg shadow-md flex items-center justify-center">
+              <img src="/src/assets/logo/DEPT OF CSE.png" alt="CSE Department Logo" className="max-h-12 md:max-h-16" />
+            </div>
+            <div className="bg-white p-4 md:p-6 rounded-lg shadow-md flex items-center justify-center">
+              <div className="font-bold text-bsf-gray">+ More Partners</div>
+            </div>
           </div>
         </div>
       </motion.section>
@@ -467,77 +581,77 @@ export default function Home() {
       >
         <div className="container">
           <div className="max-w-section mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-8 md:mb-12 lg:mb-16">
               <span className="text-bsf-red font-semibold mb-2 inline-block">UPDATES</span>
-              <h2 className="text-4xl font-bold text-bsf-green mb-4">Notice Board</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-bsf-green mb-4">Notice Board</h2>
               <p className="text-bsf-gray mt-2 max-w-2xl mx-auto">
                 Stay updated with the latest announcements and opportunities
               </p>
             </div>
-          </div>
 
-          <div className="max-w-4xl mx-auto">
-            {[
-              {
-                title: "Upcoming Workshop: Web Development Bootcamp",
-                date: "October 10, 2025",
-                content: "Join us for a 2-day intensive workshop on modern web development technologies. Registration open until October 5.",
-                category: "Event"
-              },
-              {
-                title: "BASIS Software Award 2025 - Student Category",
-                date: "September 28, 2025",
-                content: "Submit your innovative software projects for the annual BASIS awards. BSF members get priority registration.",
-                category: "Opportunity"
-              },
-              {
-                title: "New Committee Election Notice",
-                date: "September 15, 2025",
-                content: "Elections for the 2025-2026 executive committee will be held on October 15. Nominations open from September 20.",
-                category: "Important"
-              }
-            ].map((notice, index) => (
-              <motion.div
-                key={index}
-                variants={{
-                  initial: { opacity: 0, x: -20 },
-                  animate: { 
-                    opacity: 1, 
-                    x: 0, 
-                    transition: { delay: 0.15 * index, duration: 0.5 } 
-                  }
-                }}
-                className="bg-white mb-4 rounded-lg shadow-md overflow-hidden border-l-4 border-bsf-teal hover:border-bsf-red transition-colors"
+            <div className="max-w-3xl mx-auto">
+              {[
+                {
+                  title: "Upcoming Workshop: Web Development Bootcamp",
+                  date: "October 10, 2025",
+                  content: "Join us for a 2-day intensive workshop on modern web development technologies. Registration open until October 5.",
+                  category: "Event"
+                },
+                {
+                  title: "BASIS Software Award 2025 - Student Category",
+                  date: "September 28, 2025",
+                  content: "Submit your innovative software projects for the annual BASIS awards. BSF members get priority registration.",
+                  category: "Opportunity"
+                },
+                {
+                  title: "New Committee Election Notice",
+                  date: "September 15, 2025",
+                  content: "Elections for the 2025-2026 executive committee will be held on October 15. Nominations open from September 20.",
+                  category: "Important"
+                }
+              ].map((notice, index) => (
+                <motion.div
+                  key={index}
+                  variants={{
+                    initial: { opacity: 0, x: -20 },
+                    animate: { 
+                      opacity: 1, 
+                      x: 0, 
+                      transition: { delay: 0.15 * index, duration: 0.5 } 
+                    }
+                  }}
+                  className="bg-white mb-4 rounded-lg shadow-md overflow-hidden border-l-4 border-bsf-teal hover:border-bsf-red transition-colors"
+                >
+                  <div className="p-5 md:p-6">
+                    <div className="flex justify-between items-center mb-2">
+                      <h3 className="font-bold text-md md:text-lg text-bsf-green">{notice.title}</h3>
+                      <span className="bg-bsf-red/10 text-bsf-red px-2 py-1 rounded text-xs font-medium">
+                        {notice.category}
+                      </span>
+                    </div>
+                    <p className="text-bsf-gray text-sm mb-3">{notice.content}</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-bsf-gray text-xs">{notice.date}</span>
+                      <Link to="/notices" className="text-bsf-teal hover:text-bsf-red text-sm font-medium">
+                        Read more →
+                      </Link>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            
+            <div className="text-center mt-10">
+              <Link 
+                to="/notices" 
+                className="inline-flex items-center px-5 py-2.5 md:px-6 md:py-3 rounded-lg bg-bsf-teal text-white font-medium hover:bg-bsf-red transition-colors"
               >
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <h3 className="font-bold text-lg text-bsf-green">{notice.title}</h3>
-                    <span className="bg-bsf-red/10 text-bsf-red px-2 py-1 rounded text-xs font-medium">
-                      {notice.category}
-                    </span>
-                  </div>
-                  <p className="text-bsf-gray text-sm mb-3">{notice.content}</p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-bsf-gray text-xs">{notice.date}</span>
-                    <Link to="/notices" className="text-bsf-teal hover:text-bsf-red text-sm font-medium">
-                      Read more →
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-10">
-            <Link 
-              to="/notices" 
-              className="inline-flex items-center px-6 py-3 rounded-lg bg-bsf-teal text-white font-medium hover:bg-bsf-red transition-colors"
-            >
-              View All Notices
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </Link>
+                View All Notices
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </motion.section>
@@ -550,51 +664,51 @@ export default function Home() {
       >
         <div className="max-w-section mx-auto">
           <div className="bg-gradient-to-r from-bsf-green to-bsf-teal rounded-xl sm:rounded-2xl shadow-xl overflow-hidden">
-          <div className="grid md:grid-cols-2">
-            <div className="p-8 md:p-12 flex flex-col justify-center">
-              <span className="text-white/80 font-semibold mb-2 inline-block">JOIN US</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Become a Member Today</h2>
-              <p className="text-white/90 mb-8">
-                Take the first step towards building your professional network and accelerating your tech career with BASIS Student Forum.
-              </p>
-              <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2">
+              <div className="p-6 md:p-8 lg:p-12 flex flex-col justify-center">
+                <span className="text-white/80 font-semibold mb-2 inline-block">JOIN US</span>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6">Become a Member Today</h2>
+                <p className="text-white/90 mb-6 md:mb-8">
+                  Take the first step towards building your professional network and accelerating your tech career with BASIS Student Forum.
+                </p>
+                <form className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input 
+                      type="text" 
+                      placeholder="Full Name" 
+                      className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
+                    />
+                    <input 
+                      type="email" 
+                      placeholder="Email Address" 
+                      className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
+                    />
+                  </div>
                   <input 
                     type="text" 
-                    placeholder="Full Name" 
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
+                    placeholder="Student ID" 
+                    className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
                   />
-                  <input 
-                    type="email" 
-                    placeholder="Email Address" 
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
-                  />
-                </div>
-                <input 
-                  type="text" 
-                  placeholder="Student ID" 
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
+                  <select className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50">
+                    <option value="" disabled selected>Select Department</option>
+                    <option value="cse">Computer Science & Engineering</option>
+                    <option value="eee">Electrical & Electronic Engineering</option>
+                    <option value="bba">Business Administration</option>
+                  </select>
+                  <button type="submit" className="w-full bg-bsf-red hover:bg-white hover:text-bsf-red text-white font-bold py-2.5 px-4 rounded-lg transition-colors">
+                    Apply for Membership
+                  </button>
+                </form>
+              </div>
+              <div className="hidden md:block relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-bsf-green to-transparent opacity-90"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                  alt="Students collaborating" 
+                  className="h-full w-full object-cover"
                 />
-                <select className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50">
-                  <option value="" disabled selected>Select Department</option>
-                  <option value="cse">Computer Science & Engineering</option>
-                  <option value="eee">Electrical & Electronic Engineering</option>
-                  <option value="bba">Business Administration</option>
-                </select>
-                <button type="submit" className="w-full bg-bsf-red hover:bg-white hover:text-bsf-red text-white font-bold py-3 px-4 rounded-lg transition-colors">
-                  Apply for Membership
-                </button>
-              </form>
+              </div>
             </div>
-            <div className="hidden md:block relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-bsf-green to-transparent opacity-90"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="Students collaborating" 
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
           </div>
         </div>
       </motion.section>
@@ -602,32 +716,34 @@ export default function Home() {
       {/* Stats Section */}
       <motion.section 
         variants={fadeIn}
-        className="bg-bsf-gray/5 py-16"
+        className="bg-bsf-gray/5 py-12 md:py-16"
       >
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { number: "300+", label: "Members" },
-              { number: "25+", label: "Events" },
-              { number: "10+", label: "Industry Partners" },
-              { number: "15+", label: "Completed Projects" }
-            ].map((stat, index) => (
-              <motion.div 
-                key={index}
-                variants={{
-                  initial: { opacity: 0, y: 20 },
-                  animate: { 
-                    opacity: 1, 
-                    y: 0, 
-                    transition: { delay: 0.1 * index, duration: 0.5 } 
-                  }
-                }}
-                className="bg-white p-6 rounded-xl shadow-md"
-              >
-                <div className="text-4xl font-bold text-bsf-red mb-2">{stat.number}</div>
-                <div className="text-bsf-gray font-medium">{stat.label}</div>
-              </motion.div>
-            ))}
+          <div className="max-w-section mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
+              {[
+                { number: "300+", label: "Members" },
+                { number: "25+", label: "Events" },
+                { number: "10+", label: "Industry Partners" },
+                { number: "15+", label: "Completed Projects" }
+              ].map((stat, index) => (
+                <motion.div 
+                  key={index}
+                  variants={{
+                    initial: { opacity: 0, y: 20 },
+                    animate: { 
+                      opacity: 1, 
+                      y: 0, 
+                      transition: { delay: 0.1 * index, duration: 0.5 } 
+                    }
+                  }}
+                  className="bg-white p-4 md:p-6 rounded-lg md:rounded-xl shadow-md"
+                >
+                  <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-bsf-red mb-1 md:mb-2">{stat.number}</div>
+                  <div className="text-bsf-gray text-sm md:text-base font-medium">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </motion.section>
