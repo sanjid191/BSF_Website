@@ -93,7 +93,7 @@ export default function Home() {
         variants={fadeIn} 
         className="container py-8 sm:py-10 px-4 sm:px-6"
       >
-        <div className="max-w-section mx-auto grid gap-6 sm:gap-8 lg:gap-12 items-center">
+        <div className="max-w-section mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           <motion.div variants={slideIn} className="order-2 md:order-1 md:col-span-1">
             <div className="relative">
               <div className="aspect-video bg-bsf-gray/10 rounded-lg overflow-hidden shadow-xl">
@@ -551,7 +551,7 @@ export default function Home() {
       <motion.section 
         variants={fadeIn}
         id="join"
-        className="container py-12 md:py-16 lg:py-20"
+        className="container py-12 md:py-16 lg:py-20 px-4 sm:px-6"
       >
         <div className="max-w-section mx-auto">
           <div className="bg-gradient-to-r from-bsf-green to-bsf-teal rounded-xl sm:rounded-2xl shadow-xl overflow-hidden">
@@ -609,7 +609,7 @@ export default function Home() {
         variants={fadeIn}
         className="bg-bsf-gray/5 py-12 md:py-16"
       >
-        <div className="container">
+        <div className="container px-4 sm:px-6">
           <div className="max-w-section mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
               {[
