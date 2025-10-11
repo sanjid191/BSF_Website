@@ -576,34 +576,30 @@ export default function Home() {
                 <p className="text-white/90 mb-6 md:mb-8">
                   Take the first step towards building your professional network and accelerating your tech career with BASIS Student Forum.
                 </p>
-                <form className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input 
-                      type="text" 
-                      placeholder="Full Name" 
-                      className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
-                    />
-                    <input 
-                      type="email" 
-                      placeholder="Email Address" 
-                      className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
-                    />
-                  </div>
-                  <input 
-                    type="text" 
-                    placeholder="Student ID" 
-                    className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
-                  />
-                  <select className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50">
-                    <option value="" disabled selected>Select Department</option>
-                    <option value="cse">Computer Science & Engineering</option>
-                    <option value="eee">Electrical & Electronic Engineering</option>
-                    <option value="bba">Business Administration</option>
-                  </select>
-                  <button type="submit" className="w-full bg-bsf-red hover:bg-white hover:text-bsf-red text-white font-bold py-2.5 px-4 rounded-lg transition-colors">
-                    Apply for Membership
-                  </button>
-                </form>
+                
+                <div className="space-y-3 mb-6 md:mb-8">
+                  {[
+                    { icon: '🎓', text: 'Industry-aligned training & workshops' },
+                    { icon: '🤝', text: 'Networking with tech professionals' },
+                    { icon: '💼', text: 'Internship & job opportunities' },
+                    { icon: '🚀', text: 'Real-world project experience' }
+                  ].map((benefit, index) => (
+                    <div key={index} className="flex items-center gap-3 text-white/90">
+                      <span className="text-xl">{benefit.icon}</span>
+                      <span className="text-sm">{benefit.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link 
+                  to="/membership-apply"
+                  className="group w-full sm:w-auto text-center bg-bsf-red hover:bg-white text-white hover:text-bsf-red font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center gap-2"
+                >
+                  Apply for Membership
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </Link>
               </div>
               <div className="hidden md:block relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-bsf-green to-transparent opacity-90"></div>

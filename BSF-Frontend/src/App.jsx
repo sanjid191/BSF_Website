@@ -8,6 +8,7 @@ import Notices from './pages/Notices'
 import Events from './pages/Events'
 import Constitution from './pages/Constitution'
 import BasisInfo from './pages/BasisInfo'
+import MembershipApply from './pages/MembershipApply'
 import Login from './pages/admin/Login'
 import Dashboard from './pages/admin/Dashboard'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -25,6 +26,7 @@ function App() {
           <Route path="notices" element={<Notices />} />
           <Route path="constitution" element={<Constitution />} />
           <Route path="basis-info" element={<BasisInfo />} />
+          <Route path="membership-apply" element={<MembershipApply />} />
           <Route path="admin/login" element={<Login />} />
           <Route
             path="admin/dashboard"
