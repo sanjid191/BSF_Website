@@ -58,9 +58,18 @@ export default function Home() {
             <p className="text-white/90 text-sm xs:text-base md:text-lg lg:text-xl mb-6 md:mb-8 max-w-3xl mx-auto">
               Connecting students with the tech industry through innovation, collaboration, and professional development opportunities
             </p>
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-              <Link to="/projects" className="w-full xs:w-auto text-center px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 rounded-lg bg-white text-bsf-green font-medium hover:bg-bsf-red hover:text-white transition-colors">
-                Explore Projects
+            <div className="flex flex-col xs:flex-row flex-wrap justify-center gap-3 sm:gap-4 max-w-md mx-auto xs:max-w-none">
+              <Link 
+                to="/projects" 
+                className="group relative w-full xs:w-auto text-center px-5 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-3.5 rounded-lg bg-white text-bsf-green font-semibold hover:bg-bsf-red hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Explore Projects
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-bsf-red to-bsf-red/90 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
               </Link>
               <a 
                 href="#about" 
@@ -68,9 +77,14 @@ export default function Home() {
                   e.preventDefault();
                   aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="w-full xs:w-auto text-center px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 rounded-lg border-2 border-white text-white font-medium hover:bg-white hover:text-bsf-green transition-colors"
+                className="group w-full xs:w-auto text-center px-5 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-3.5 rounded-lg border-2 border-white text-white font-semibold hover:bg-white hover:text-bsf-green transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 backdrop-blur-sm bg-white/10"
               >
-                Learn More
+                <span className="flex items-center justify-center gap-2">
+                  Learn More
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
               </a>
             </div>
           </motion.div>
