@@ -185,39 +185,53 @@ export default function MembershipApply() {
         animate="animate"
         exit="exit"
         variants={pageTransition}
-        className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6"
+        className="min-h-screen bg-gradient-to-br from-green-50 via-teal-50 to-blue-50 flex items-center justify-center py-12 px-4 sm:px-6"
       >
         <div className="max-w-2xl mx-auto text-center">
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-            className="w-20 h-20 sm:w-24 sm:h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+            className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-green-400 via-teal-400 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl"
           >
-            <svg className="w-10 h-10 sm:w-12 sm:h-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            <svg className="w-12 h-12 sm:w-16 sm:h-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
             </svg>
           </motion.div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-bsf-green mb-4">
-            Application Submitted Successfully!
-          </h1>
-          <p className="text-bsf-gray text-base sm:text-lg mb-8">
-            Thank you for applying to join BASIS Student Forum at GUB. We'll review your application and get back to you within 3-5 business days via email.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-bsf-green via-bsf-teal to-green-600 bg-clip-text text-transparent mb-4">
+              🎉 Application Submitted Successfully!
+            </h1>
+            <p className="text-gray-700 text-base sm:text-lg mb-2">
+              <strong>Thank you for applying to join BASIS Student Forum!</strong>
+            </p>
+            <p className="text-gray-600 text-base sm:text-lg mb-8 max-w-xl mx-auto">
+              We'll review your application and get back to you within <span className="font-semibold text-bsf-green">3-5 business days</span> via email. Get ready to join an amazing community! 🚀
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
             <Link
               to="/"
-              className="px-6 py-3 bg-bsf-green text-white rounded-lg font-medium hover:bg-bsf-green/90 transition-colors"
+              className="px-8 py-3 bg-gradient-to-r from-bsf-green to-bsf-teal text-white rounded-lg font-semibold hover:from-bsf-green/90 hover:to-bsf-teal/90 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Back to Home
             </Link>
             <button
               onClick={() => setSubmitSuccess(false)}
-              className="px-6 py-3 border-2 border-bsf-green text-bsf-green rounded-lg font-medium hover:bg-bsf-green hover:text-white transition-colors"
+              className="px-8 py-3 border-2 border-bsf-green text-bsf-green rounded-lg font-semibold hover:bg-bsf-green hover:text-white transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Submit Another Application
             </button>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     );
@@ -229,20 +243,29 @@ export default function MembershipApply() {
       animate="animate"
       exit="exit"
       variants={pageTransition}
-      className="min-h-screen"
+      className="min-h-screen bg-gradient-to-br from-blue-50 via-teal-50 to-green-50"
     >
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-bsf-green to-bsf-teal py-12 sm:py-16 md:py-20 overflow-hidden">
+      <div className="relative bg-gradient-to-r from-bsf-green via-bsf-teal to-blue-600 py-12 sm:py-16 md:py-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div className="absolute top-10 right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-0 left-0 w-60 h-60 bg-yellow-300/10 rounded-full blur-3xl"></div>
         
         <div className="container relative z-10 px-4 sm:px-6">
           <motion.div variants={fadeIn} className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block bg-white/20 backdrop-blur-sm text-white px-6 py-2 rounded-full mb-4 shadow-lg border border-white/30"
+            >
+              <span className="text-sm font-bold tracking-wide">✨ MEMBERSHIP APPLICATION</span>
+            </motion.div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
               Membership Application
             </h1>
-            <p className="text-white/90 text-base sm:text-lg md:text-xl mb-0 max-w-2xl mx-auto">
-              Join BASIS Student Forum and take the first step towards building your professional network in the tech industry
+            <p className="text-white/95 text-base sm:text-lg md:text-xl mb-0 max-w-2xl mx-auto drop-shadow">
+              Join BASIS Student Forum and take the first step towards building your professional network in the tech industry 🚀
             </p>
           </motion.div>
         </div>
@@ -278,12 +301,13 @@ export default function MembershipApply() {
           <motion.form
             variants={fadeIn}
             onSubmit={handleSubmit}
-            className="bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10"
+            className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-10 border-t-4 border-bsf-green"
           >
             {/* Personal Information */}
             <div className="mb-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-bsf-green mb-6 pb-3 border-b-2 border-bsf-green/20">
-                Personal Information
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 pb-3 border-b-2 border-gradient-to-r from-bsf-green to-bsf-teal flex items-center gap-3">
+                <span className="bg-gradient-to-br from-bsf-green to-bsf-teal text-white w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-lg">1</span>
+                <span className="bg-gradient-to-r from-bsf-green to-bsf-teal bg-clip-text text-transparent">Personal Information</span>
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -389,8 +413,9 @@ export default function MembershipApply() {
 
             {/* Academic Information */}
             <div className="mb-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-bsf-green mb-6 pb-3 border-b-2 border-bsf-green/20">
-                Academic Information
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 pb-3 border-b-2 border-gradient-to-r from-blue-500 to-purple-500 flex items-center gap-3">
+                <span className="bg-gradient-to-br from-blue-500 to-purple-500 text-white w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-lg">2</span>
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Academic Information</span>
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -483,8 +508,9 @@ export default function MembershipApply() {
 
             {/* Contact Information */}
             <div className="mb-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-bsf-green mb-6 pb-3 border-b-2 border-bsf-green/20">
-                Contact Information
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 pb-3 border-b-2 border-gradient-to-r from-orange-500 to-red-500 flex items-center gap-3">
+                <span className="bg-gradient-to-br from-orange-500 to-red-500 text-white w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-lg">3</span>
+                <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">Contact Information</span>
               </h3>
               
               <div className="grid grid-cols-1 gap-4 sm:gap-6">
@@ -550,8 +576,9 @@ export default function MembershipApply() {
 
             {/* Professional Information */}
             <div className="mb-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-bsf-green mb-6 pb-3 border-b-2 border-bsf-green/20">
-                Professional Information
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 pb-3 border-b-2 border-gradient-to-r from-indigo-500 to-cyan-500 flex items-center gap-3">
+                <span className="bg-gradient-to-br from-indigo-500 to-cyan-500 text-white w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-lg">4</span>
+                <span className="bg-gradient-to-r from-indigo-600 to-cyan-600 bg-clip-text text-transparent">Professional Information</span>
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -616,8 +643,9 @@ export default function MembershipApply() {
 
             {/* Interests & Motivation */}
             <div className="mb-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-bsf-green mb-6 pb-3 border-b-2 border-bsf-green/20">
-                Interests & Motivation
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 pb-3 border-b-2 border-gradient-to-r from-pink-500 to-rose-500 flex items-center gap-3">
+                <span className="bg-gradient-to-br from-pink-500 to-rose-500 text-white w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-lg">5</span>
+                <span className="bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">Interests & Motivation</span>
               </h3>
               
               <div className="mb-6">
@@ -625,19 +653,44 @@ export default function MembershipApply() {
                   Areas of Interest (Select all that apply)
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {areasOfInterestOptions.map((area) => (
-                    <label key={area} className="flex items-center cursor-pointer">
-                      <input
-                        type="checkbox"
-                        name="areasOfInterest"
-                        value={area}
-                        checked={formData.areasOfInterest.includes(area)}
-                        onChange={handleChange}
-                        className="w-4 h-4 text-bsf-green border-gray-300 rounded focus:ring-bsf-green"
-                      />
-                      <span className="ml-2 text-sm text-bsf-gray">{area}</span>
-                    </label>
-                  ))}
+                  {areasOfInterestOptions.map((area, index) => {
+                    const colors = [
+                      'from-blue-500 to-cyan-500',
+                      'from-green-500 to-teal-500',
+                      'from-purple-500 to-pink-500',
+                      'from-orange-500 to-red-500',
+                      'from-red-500 to-rose-500',
+                      'from-sky-500 to-blue-500',
+                      'from-pink-500 to-purple-500',
+                      'from-indigo-500 to-violet-500',
+                      'from-emerald-500 to-green-500',
+                      'from-amber-500 to-orange-500'
+                    ];
+                    const icons = ['🌐', '📱', '🤖', '📊', '🔒', '☁️', '🎨', '🎮', '🔧', '⛓️'];
+                    return (
+                      <label 
+                        key={area} 
+                        className={`flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all ${
+                          formData.areasOfInterest.includes(area)
+                            ? `bg-gradient-to-r ${colors[index % colors.length]} text-white border-transparent shadow-lg transform scale-105`
+                            : 'bg-white border-gray-200 hover:border-gray-300 hover:shadow-md'
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          name="areasOfInterest"
+                          value={area}
+                          checked={formData.areasOfInterest.includes(area)}
+                          onChange={handleChange}
+                          className="w-4 h-4 text-bsf-green border-gray-300 rounded focus:ring-bsf-green"
+                        />
+                        <span className="text-xl">{icons[index % icons.length]}</span>
+                        <span className={`font-medium text-sm ${formData.areasOfInterest.includes(area) ? 'text-white' : 'text-gray-700'}`}>
+                          {area}
+                        </span>
+                      </label>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -732,27 +785,32 @@ export default function MembershipApply() {
             <div className="flex flex-col sm:flex-row gap-4 justify-end">
               <Link
                 to="/"
-                className="px-6 py-3 border-2 border-bsf-gray text-bsf-gray rounded-lg font-medium hover:bg-gray-50 transition-colors text-center"
+                className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-100 hover:border-gray-400 transition-all transform hover:scale-105 text-center"
               >
                 Cancel
               </Link>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`px-8 py-3 bg-bsf-green text-white rounded-lg font-semibold hover:bg-bsf-green/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 ${
-                  isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                className={`px-8 py-3 bg-gradient-to-r from-bsf-green to-bsf-teal text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2 ${
+                  isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:from-bsf-green/90 hover:to-bsf-teal/90'
                 }`}
               >
                 {isSubmitting ? (
-                  <span className="flex items-center justify-center gap-2">
+                  <>
                     <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Submitting...
-                  </span>
+                    Submitting Application...
+                  </>
                 ) : (
-                  'Submit Application'
+                  <>
+                    Submit Application
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </>
                 )}
               </button>
             </div>
