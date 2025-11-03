@@ -16,7 +16,7 @@ router.get('/public', async (req, res) => {
         active: true
       },
       order: [
-        ['displayOrder', 'ASC'],
+        ['display_order', 'ASC'],
         ['id', 'ASC']
       ]
     });
@@ -86,7 +86,7 @@ router.get('/', authMiddleware, async (req, res) => {
       where: whereClause,
       order: [
         ['year', 'DESC'],
-        ['displayOrder', 'ASC'],
+        ['display_order', 'ASC'],
         ['id', 'ASC']
       ],
       limit: parseInt(limit),
@@ -169,18 +169,18 @@ router.post('/', authMiddleware, async (req, res) => {
     }
 
     const member = await CommitteeMember.create({
-      fullName,
+      full_name: fullName,
       position,
       email,
       phone,
-      studentId,
+      student_id: studentId,
       department,
-      imageUrl,
-      linkedinUrl,
-      facebookUrl,
+      image_url: imageUrl,
+      linkedin_url: linkedinUrl,
+      facebook_url: facebookUrl,
       bio,
       year,
-      displayOrder,
+      display_order: displayOrder,
       active
     });
 
@@ -230,18 +230,18 @@ router.put('/:id', authMiddleware, async (req, res) => {
     } = req.body;
 
     await member.update({
-      fullName: fullName || member.fullName,
+      full_name: fullName || member.full_name,
       position: position || member.position,
       email: email || member.email,
       phone: phone !== undefined ? phone : member.phone,
-      studentId: studentId !== undefined ? studentId : member.studentId,
+      student_id: studentId !== undefined ? studentId : member.student_id,
       department: department !== undefined ? department : member.department,
-      imageUrl: imageUrl !== undefined ? imageUrl : member.imageUrl,
-      linkedinUrl: linkedinUrl !== undefined ? linkedinUrl : member.linkedinUrl,
-      facebookUrl: facebookUrl !== undefined ? facebookUrl : member.facebookUrl,
+      image_url: imageUrl !== undefined ? imageUrl : member.image_url,
+      linkedin_url: linkedinUrl !== undefined ? linkedinUrl : member.linkedin_url,
+      facebook_url: facebookUrl !== undefined ? facebookUrl : member.facebook_url,
       bio: bio !== undefined ? bio : member.bio,
       year: year || member.year,
-      displayOrder: displayOrder !== undefined ? displayOrder : member.displayOrder,
+      display_order: displayOrder !== undefined ? displayOrder : member.display_order,
       active: active !== undefined ? active : member.active
     });
 
@@ -313,7 +313,7 @@ router.put('/:id/reorder', authMiddleware, async (req, res) => {
       });
     }
 
-    await member.update({ displayOrder: parseInt(displayOrder) });
+    await member.update({ display_order: parseInt(displayOrder) });
 
     res.json({
       success: true,

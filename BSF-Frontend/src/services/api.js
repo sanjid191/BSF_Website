@@ -175,5 +175,44 @@ export const committeeAPI = {
   },
 };
 
+// Applications API
+export const applicationsAPI = {
+  // Public endpoint - Submit application
+  submitApplication: async (applicationData) => {
+    return await apiRequest('/applications', {
+      method: 'POST',
+      body: JSON.stringify(applicationData),
+    });
+  },
+
+  // Admin endpoints
+  getAllApplications: async (status = '') => {
+    const params = status ? `?status=${status}` : '';
+    return await apiRequest(`/applications${params}`);
+  },
+
+  getApplicationById: async (id) => {
+    return await apiRequest(`/applications/${id}`);
+  },
+
+  approveApplication: async (id) => {
+    return await apiRequest(`/applications/${id}/approve`, {
+      method: 'PUT',
+    });
+  },
+
+  rejectApplication: async (id) => {
+    return await apiRequest(`/applications/${id}/reject`, {
+      method: 'PUT',
+    });
+  },
+
+  deleteApplication: async (id) => {
+    return await apiRequest(`/applications/${id}`, {
+      method: 'DELETE',
+    });
+  },
+};
+
 // Export token management for use in components
 export { getToken, setToken, removeToken, getUser, setUser, removeUser };

@@ -27,10 +27,10 @@ router.get('/public', async (req, res) => {
       where: whereClause,
       order: [
         ['priority', 'DESC'],
-        ['createdAt', 'DESC']
+        ['publish_date', 'DESC']
       ],
       limit: parseInt(limit),
-      attributes: { exclude: ['createdBy'] }
+      attributes: { exclude: ['created_by'] }
     });
 
     res.json({
@@ -71,7 +71,7 @@ router.get('/', authMiddleware, async (req, res) => {
       where: whereClause,
       order: [
         ['priority', 'DESC'],
-        ['createdAt', 'DESC']
+        ['publish_date', 'DESC']
       ],
       limit: parseInt(limit),
       offset: offset
@@ -152,11 +152,11 @@ router.post('/', authMiddleware, async (req, res) => {
       description,
       category,
       active,
-      fileUrl,
-      publishDate: publishDate || new Date(),
-      expiryDate,
+      file_url: fileUrl,
+      publish_date: publishDate || new Date(),
+      expiry_date: expiryDate,
       priority,
-      createdBy: req.user.id
+      created_by: req.user.id
     });
 
     res.status(201).json({
@@ -204,9 +204,9 @@ router.put('/:id', authMiddleware, async (req, res) => {
       description: description !== undefined ? description : notice.description,
       category: category || notice.category,
       active: active !== undefined ? active : notice.active,
-      fileUrl: fileUrl !== undefined ? fileUrl : notice.fileUrl,
-      publishDate: publishDate !== undefined ? publishDate : notice.publishDate,
-      expiryDate: expiryDate !== undefined ? expiryDate : notice.expiryDate,
+      file_url: fileUrl !== undefined ? fileUrl : notice.file_url,
+      publish_date: publishDate !== undefined ? publishDate : notice.publish_date,
+      expiry_date: expiryDate !== undefined ? expiryDate : notice.expiry_date,
       priority: priority !== undefined ? priority : notice.priority
     });
 
