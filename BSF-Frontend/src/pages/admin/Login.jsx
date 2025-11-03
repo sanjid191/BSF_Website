@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { authAPI } from '../../services/api';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -12,11 +13,12 @@ const fadeIn = {
 export default function Login() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: 'admin@bsf.gub.edu.bd',
+    password: 'admin123'
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -28,13 +30,21 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError('');
 
-    // Simulate login delay for now
-    setTimeout(() => {
+    try {
+      const response = await authAPI.login(formData.email, formData.password);
+      
+      if (response.success) {
+        // Navigate to dashboard on successful login
+        navigate('/admin/dashboard');
+      }
+    } catch (err) {
+      setError(err.message || 'Login failed. Please check your credentials.');
+      console.error('Login error:', err);
+    } finally {
       setIsLoading(false);
-      // Navigate to dashboard for testing
-      navigate('/admin/dashboard');
-    }, 1000);
+    }
   };
 
   return (
@@ -80,6 +90,19 @@ export default function Login() {
           className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl p-8 border border-white/20"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Error Message */}
+            {error && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-center gap-2"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm">{error}</span>
+              </motion.div>
+            )}
             {/* Email Field */}
             <div>
               <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -124,6 +147,7 @@ export default function Login() {
                   required
                   value={formData.password}
                   onChange={handleChange}
+                  
                   className="w-full pl-12 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-bsf-green focus:border-transparent transition-all"
                   placeholder="••••••••"
                 />
@@ -190,17 +214,25 @@ export default function Login() {
                 <div className="w-full border-t border-gray-300"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Demo Access</span>
+                <span className="px-2 bg-white text-gray-500">Default Credentials</span>
               </div>
             </div>
 
-            {/* Demo Info */}
-            <div className="bg-gradient-to-r from-blue-50 to-teal-50 border border-blue-200 rounded-lg p-4">
-              <p className="text-sm text-gray-700 text-center">
-                <span className="font-semibold">Testing Mode:</span> Click "Sign in" to access the dashboard
+            {/* Default Credentials Info */}
+            <div className="bg-gradient-to-r from-green-50 to-teal-50 border border-green-200 rounded-lg p-4">
+              <p className="text-sm text-gray-700 text-center font-semibold mb-2">
+                Default Admin Login
               </p>
-              <p className="text-xs text-gray-600 text-center mt-2">
-                Authentication logic will be implemented later
+              <div className="text-xs text-gray-600 space-y-1">
+                <p className="text-center">
+                  <span className="font-medium">Email:</span> admin@bsf.gub.edu.bd
+                </p>
+                <p className="text-center">
+                  <span className="font-medium">Password:</span> admin123
+                </p>
+              </div>
+              <p className="text-xs text-gray-500 text-center mt-2">
+                (Already filled in for you)
               </p>
             </div>
           </form>
